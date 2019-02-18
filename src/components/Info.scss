@@ -1,0 +1,33 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  
+  .block {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    color: #fac044;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    .heading {
+      text-align: center;
+    }
+
+    .content {
+      text-align: center;
+      font-size: 30px;
+
+      &.x {
+        color: #ff6f69;
+      }
+    
+      &.o {
+        color: #96ceb4;
+      }
+    }
+  }
+}

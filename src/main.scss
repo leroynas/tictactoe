@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+
+body {
+  margin: 0;
+  font-family: 'Bungee', Calibri;
+
+  #app {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: #ffeead;
+  }
+}

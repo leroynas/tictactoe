@@ -1,0 +1,19 @@
+.cell {
+  flex: 1;
+  font-family: 'Bungee', Calibri;
+  font-size: 50px;
+  background: transparent;
+  border: 5px solid #ffcc5c;
+
+  &.x {
+    color: #ff6f69;
+  }
+
+  &.o {
+    color: #96ceb4;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

@@ -1,0 +1,23 @@
+.btn {
+  flex: 1;
+  text-transform: uppercase;
+  background-color: #ff6f69;
+  padding: 10px;
+  font-size: 26px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: 'Bungee', Calibri;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  &.disabled {
+    background-color:  #fc928e;
+  }
+}
