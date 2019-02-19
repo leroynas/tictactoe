@@ -107,7 +107,7 @@ class Game extends Component {
   async saveGame() {
     const { steps } = this.state;
     const response = await post('/game/create', { steps });
-    if (typeof response.message !== 'undefined') this.setState({ saved: true });
+    if (typeof response.gameid !== 'undefined') this.setState({ saved: true });
   }
 
   render() {
