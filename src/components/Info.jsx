@@ -3,9 +3,14 @@ import React from 'react';
 
 import './Info.scss';
 
+/**
+ * Info component - used for rendering info
+ *
+ * @param {*} { value, position, clickCell } props given to component
+ * @returns JSX structure
+ */
 function Info({ winner, turnX }) {
   return (
-
     <div className="info">
       <div className="block">
         <span className="heading">Turn:</span>

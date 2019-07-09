@@ -8,7 +8,17 @@ import { post } from '../core/fetch';
 
 import './Game.scss';
 
+/**
+ * Game component - user for rendering game.
+ *
+ * @class Game
+ * @extends {Component}
+ */
 class Game extends Component {
+  /**
+   * Creates an instance of Game with required bindings.
+   * @memberof Game
+   */
   constructor() {
     super();
 
@@ -30,6 +40,13 @@ class Game extends Component {
     this.handleSaveGame = this.saveGame.bind(this);
   }
 
+  /**
+   * clickCell method handles cell clicks. Manipulates state for rerendering.
+   *
+   * @param {*} position position of clicked cell
+   *
+   * @memberof Game
+   */
   clickCell(position) {
     const {
       board, steps, turnX, winner,
@@ -50,6 +67,11 @@ class Game extends Component {
     if (result) this.setState({ winner: result });
   }
 
+  /**
+   * restart method handles restart button. Resets state for rerendering.
+   *
+   * @memberof Game
+   */
   restart() {
     this.setState({
       board: [
@@ -64,6 +86,12 @@ class Game extends Component {
     });
   }
 
+  /**
+   * stepBack method handles step back button. Removes last step from state for
+   * rerendering.
+   *
+   * @memberof Game
+   */
   stepBack() {
     const { board, steps, turnX } = this.state;
 
@@ -74,6 +102,13 @@ class Game extends Component {
     this.setState({ steps, board, turnX: !turnX });
   }
 
+  /**
+   * calculateWinner method is used for checking winning positions. Returns
+   * winner (X/O) or null.
+   *
+   * @returns string|null
+   * @memberof Game
+   */
   calculateWinner() {
     const { board } = this.state;
     let winner = null;
@@ -92,11 +127,14 @@ class Game extends Component {
     posibilities.forEach((posibility) => {
       const [[ax, ay], [bx, by], [cx, cy]] = posibility;
 
+      // Check if position is not null in board array (so must be filled).
       if (
         board[ay][ax]
         && board[ay][ax] === board[by][bx]
         && board[ay][ax] === board[cy][cx]
       ) {
+        // Assign winner variable, use object from board. Board is
+        // mutlidimensional array based on rows so y comes before x.
         winner = board[ay][ax];
       }
     });
@@ -104,12 +142,23 @@ class Game extends Component {
     return winner;
   }
 
+  /**
+   * saveGame method is used for sending game data to API.
+   *
+   * @memberof Game
+   */
   async saveGame() {
     const { steps } = this.state;
     const response = await post('/game/create', { steps });
     if (typeof response.gameid !== 'undefined') this.setState({ saved: true });
   }
 
+  /**
+   * render function for Game component.
+   *
+   * @returns JSX structure
+   * @memberof Game
+   */
   render() {
     const {
       board, turnX, winner, saved,

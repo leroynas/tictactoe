@@ -5,6 +5,12 @@ import Cell from './Cell';
 
 import './Board.scss';
 
+/**
+ * Board component - used for board rendering.
+ *
+ * @param {*} { board, clickCell } props given to component
+ * @returns JSX structure
+ */
 function Board({ board, clickCell }) {
   return (
     <div className="board-wrapper">

@@ -3,6 +3,12 @@ import React from 'react';
 
 import './Cell.scss';
 
+/**
+ * Cell component - used for rendering cells.
+ *
+ * @param {*} { value, position, clickCell } props given to component
+ * @returns JSX structure
+ */
 function Cell({ value, position, clickCell }) {
   return (
     <button className={`cell ${value ? value.toLowerCase() : ''}`} type="button" onClick={!value ? clickCell.bind(null, position) : null}>{ value }</button>
